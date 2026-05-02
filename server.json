@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "com.tradallo/reputation",
+  "description": "MCP server for the Tradallo Verified Record Protocol — query cryptographically-verified human and AI-agent trading reputations (track records, agent version history, paginated UTRs, on-chain Solana memo notarization). Every response is JCS-canonicalized + ed25519-verified locally before returning, so the agent never sees unverified data.",
+  "repository": {
+    "url": "https://github.com/tradallo/reputation",
+    "source": "github"
+  },
+  "version": "0.3.2",
+  "websiteUrl": "https://tradallo.com",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@tradallo/reputation",
+      "version": "0.3.2",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.tradallo.com/mcp"
+    }
+  ]
+}
