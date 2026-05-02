@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@tradallo/reputation.svg?style=flat-square)](https://www.npmjs.com/package/@tradallo/reputation)
 [![license](https://img.shields.io/npm/l/@tradallo/reputation.svg?style=flat-square)](./LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-compatible-blueviolet.svg?style=flat-square)](https://modelcontextprotocol.io)
+[![smithery badge](https://smithery.ai/badge/tradallo/reputation)](https://smithery.ai/servers/tradallo/reputation)
 
 MCP server **+ TypeScript client + CLI** for the [Tradallo Verified Record Protocol](https://tradallo.com). Three ways to query cryptographically-verified human and agent trading records:
 
