@@ -34,6 +34,11 @@ const c = {
   red: ESC + "38;5;203m",
   grey: ESC + "38;5;245m",
   cyan: ESC + "38;5;44m",
+  // Brand pink #FF7BA6, truecolor (24-bit). Falls back to nearest 256-color
+  // approximation on terminals without truecolor; degrades to plain text
+  // entirely when NO_COLOR is set.
+  brand: ESC + "38;2;255;123;166m",
+  brandSoft: ESC + "38;2;255;179;204m",
 };
 
 const NO_COLOR = process.env.NO_COLOR != null || !process.stdout.isTTY;
@@ -176,7 +181,30 @@ function renderCard(payload: TrackRecordPayload, opts: { keyId: string }): strin
 
 // ─── Subcommand dispatch ────────────────────────────────────────────────
 
-const HELP = `${paint(c.bold, "@tradallo/reputation")} ${paint(c.dim, "— verified trading record protocol")}
+// Brand banner — block-letter "TRADALLO" in brand pink. Six lines × ~66
+// cols. Prints at the top of `help` output; also emitted to stderr on MCP
+// startup so a developer attaching to the stdio process sees something
+// recognizable instead of silence. Pure printable ASCII so it round-trips
+// safely across terminals/SSH/log aggregators.
+const BANNER_LINES = [
+  "████████╗██████╗  █████╗ ██████╗  █████╗ ██╗     ██╗      ██████╗ ",
+  "╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║     ██║     ██╔═══██╗",
+  "   ██║   ██████╔╝███████║██║  ██║███████║██║     ██║     ██║   ██║",
+  "   ██║   ██╔══██╗██╔══██║██║  ██║██╔══██║██║     ██║     ██║   ██║",
+  "   ██║   ██║  ██║██║  ██║██████╔╝██║  ██║███████╗███████╗╚██████╔╝",
+  "   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ",
+];
+
+export const PKG_VERSION = "0.3.2";
+
+const BANNER = [
+  ...BANNER_LINES.map((l) => paint(c.brand, l)),
+  paint(c.brandSoft, "  reputation") +
+    paint(c.dim, ` · v${PKG_VERSION} · MIT · `) +
+    paint(c.brandSoft, "tradallo.com"),
+].join("\n");
+
+const HELP = `${BANNER}
 
 ${paint(c.bold, "USAGE")}
   npx @tradallo/reputation <subcommand> [args]
