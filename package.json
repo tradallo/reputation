@@ -1,6 +1,7 @@
 {
   "name": "@tradallo/reputation",
-  "version": "0.3.2",
+  "version": "0.3.3",
+  "mcpName": "com.tradallo/reputation",
   "description": "MCP server + TypeScript client for the Tradallo Verified Record Protocol — query cryptographically-verified human + agent trading reputations. Speaks MCP over stdio for Claude Desktop / Cursor / any LLM, exposes a CLI for terminal use, and exports TradalloClient as a typed module for embedding in any TS/JS app.",
   "license": "MIT",
   "author": "Tradallo <hello@tradallo.com>",

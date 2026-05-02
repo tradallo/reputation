@@ -3,6 +3,13 @@
 All notable changes to `@tradallo/reputation` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.3] — 2026-05-02
+
+### Added
+- `mcpName: "com.tradallo/reputation"` in `package.json` — anti-typosquatting
+  link required by the Official MCP Registry to bind the npm package to its
+  registry namespace. No runtime change; metadata only.
+
 ## [0.3.2] — 2026-05-02
 
 ### Changed

@@ -13,7 +13,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@tradallo/reputation",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "transport": {
         "type": "stdio"
       }
