@@ -1,0 +1,69 @@
+{
+  "name": "@tradallo/reputation",
+  "version": "0.3.2",
+  "description": "MCP server + TypeScript client for the Tradallo Verified Record Protocol — query cryptographically-verified human + agent trading reputations. Speaks MCP over stdio for Claude Desktop / Cursor / any LLM, exposes a CLI for terminal use, and exports TradalloClient as a typed module for embedding in any TS/JS app.",
+  "license": "MIT",
+  "author": "Tradallo <hello@tradallo.com>",
+  "homepage": "https://tradallo.com",
+  "bugs": {
+    "url": "https://github.com/tradallo/reputation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tradallo/reputation.git"
+  },
+  "type": "module",
+  "bin": {
+    "tradallo-reputation": "./dist/index.js"
+  },
+  "main": "./dist/client.js",
+  "types": "./dist/client.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --import tsx/esm src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "canonicalize": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "tsx": "^4.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tradallo",
+    "trading",
+    "reputation",
+    "verified",
+    "agent",
+    "claude",
+    "llm-tool"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
